@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐博体育 · 资料整理与索引笔记</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fbe9e7 0%, #fce4b4 50%, #fdebd0 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .card {
+      max-width: 780px;
+      width: 100%;
+      background: rgba(255, 255, 245, .92);
+      backdrop-filter: blur(2px);
+      border-radius: 32px;
+      box-shadow: 0 12px 32px rgba(180, 100, 30, 0.12), 0 4px 12px rgba(0,0,0,0.04);
+      padding: 2.5rem 2.2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #4e3022;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-line {
+      font-size: 1.1rem;
+      color: #7f5a42;
+      background: #fcede4;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      margin-bottom: 1.6rem;
+      font-weight: 380;
+    }
+
+    .intro p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #3a2a20;
+      margin-bottom: 1.25rem;
+    }
+
+    .intro a {
+      color: #aa5f3a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s, background 0.1s;
+    }
+
+    .intro a:hover {
+      border-bottom-color: #c0845e;
+      background: #f7e6da;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.8rem 0 2rem;
+    }
+
+    .feature-item {
+      background: #faf1e9;
+      border-radius: 48px;
+      padding: 0.5rem 1.2rem 0.5rem 1rem;
+      font-size: 0.95rem;
+      color: #3c2c20;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(160, 90, 40, 0.04);
+    }
+
+    .feature-item::before {
+      content: "•";
+      color: #b57048;
+      font-weight: bold;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .scene-block {
+      background: #f9ede4;
+      border-radius: 24px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 1.8rem;
+    }
+
+    .scene-block h2 {
+      font-size: 1.1rem;
+      font-weight: 450;
+      color: #4d3324;
+      margin-bottom: 0.6rem;
+    }
+
+    .scene-block ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .scene-block li {
+      padding: 0.25rem 0;
+      font-size: 0.95rem;
+      color: #3a2c1e;
+      display: flex;
+      gap: 8px;
+    }
+
+    .scene-block li::before {
+      content: "→";
+      color: #b77a54;
+      font-weight: 400;
+    }
+
+    .faq-mini {
+      margin: 2rem 0 1.2rem;
+    }
+
+    .faq-mini details {
+      border-bottom: 1px solid #e8d6c8;
+      padding: 0.5rem 0;
+    }
+
+    .faq-mini summary {
+      cursor: pointer;
+      font-weight: 450;
+      color: #513b2d;
+      padding: 0.25rem 0;
+      font-size: 0.98rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-mini summary::before {
+      content: "▸";
+      margin-right: 8px;
+      color: #b7754f;
+      transition: transform 0.15s;
+    }
+
+    .faq-mini details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-mini p {
+      margin: 0.5rem 0 0.2rem 1.5rem;
+      color: #4d392b;
+      font-size: 0.93rem;
+      line-height: 1.5;
+    }
+
+    .gentle-footer {
+      margin-top: 2.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e5d2c2;
+      font-size: 0.9rem;
+      color: #6f5744;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .gentle-footer a {
+      color: #8d5e40;
+      text-decoration: none;
+      background: #f4e3d8;
+      padding: 0.3rem 1.2rem;
+      border-radius: 48px;
+      font-weight: 450;
+      transition: background 0.15s, color 0.15s;
+      font-size: 0.95rem;
+    }
+
+    .gentle-footer a:hover {
+      background: #e1cbbc;
+      color: #4f2f1b;
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: #8c7260;
+      margin-top: 0.3rem;
+    }
+
+    @media (max-width: 500px) {
+      .card { padding: 1.8rem 1.2rem; }
+      h1 { font-size: 1.7rem; }
+      .feature-list { flex-direction: column; gap: 0.5rem; }
+      .feature-item { display: flex; }
+      .gentle-footer { flex-direction: column; gap: 0.6rem; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="hero-line">📂 从资料整理与信息索引说起</span>
+    <h1>乐博体育 · 一份温和的索引笔记</h1>
+
+    <div class="intro">
+      <p>
+        翻阅体育资讯、赛事数据、训练日志，有时不过是找一个安静的地方，把零散的片段归拢起来。
+        信息太多的时候，我们更愿意有一片干净的区域，把感兴趣的条目标好、分类。
+        对于日常关注运动的朋友来说，<a href="https://china-lebosport.com">乐博体育</a>就是这样一个不起眼但实在的参考坐标。
+      </p>
+      <p>
+        不需要大量推广话术，也不用复杂的入口——它更像一个熟悉的书架侧面，随手抽出就是最近关注的联赛备忘、球队简述或赛季时间轴。
+        从整理癖的角度看，这种简洁反而好用。
+      </p>
+    </div>
+
+    <div class="feature-list">
+      <span class="feature-item">赛事时间线速览</span>
+      <span class="feature-item">队伍与赛季标签</span>
+      <span class="feature-item">简易数据归档</span>
+      <span class="feature-item">无干扰阅读版式</span>
+    </div>
+
+    <div class="scene-block">
+      <h2>📋 适合这样翻看</h2>
+      <ul>
+        <li>周末下午，泡杯茶，打开笔记栏对照赛程</li>
+        <li>整理电脑里零散的体育截图和片段，找一个参考页面</li>
+        <li>和朋友聊到某个队伍，快速核一眼赛季表现</li>
+        <li>纯粹想浏览，不注册、不订阅，安静地看几分钟</li>
+      </ul>
+    </div>
+
+    <div class="faq-mini">
+      <details>
+        <summary>这个索引页面主要汇集什么类型的信息？</summary>
+        <p>以体育项目的基本资料、赛事时间、队伍概况、历史片段归档为主，不做实时博采或诱导类内容，风格偏向资料卡片和列表。</p>
+      </details>
+      <details>
+        <summary>信息更新频率大概怎样？</summary>
+        <p>视赛季节奏和可用资料而定，不定期整合。页面更侧重长期可读的参考条目，而非秒级滚动新闻。</p>
+      </details>
+      <details>
+        <summary>我可以在其他笔记里引用这里的内容吗？</summary>
+        <p>合理引用、注明来源即可，索引本身是公开整理，不设限制。也欢迎反馈你认为有价值的条目。</p>
+      </details>
+    </div>
+
+    <div class="gentle-footer">
+      <span class="note">📌 一个安静的体育资料索引角落</span>
+      <a href="https://china-lebosport.com">乐博体育</a>
+    </div>
+  </div>
+</body>
+</html>
